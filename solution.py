@@ -19,7 +19,6 @@ def naked_twins(values):
     """Eliminate values using the naked twins strategy.
     Args:
         values(dict): a dictionary of the form {'box_name': '123456789', ...}
-
     Returns:
         the values dictionary with the naked twins eliminated from peers.
     """
@@ -61,7 +60,7 @@ def naked_twins(values):
 
 def cross(A, B):
     "Cross product of elements in A and elements in B."
-        return [s+t for s in A for t in B]
+    return [s+t for s in A for t in B]
 
 rows = "ABCDEFGHI"
 cols = "123456789"
@@ -99,7 +98,7 @@ Creating Units and Peers for each box as a dictionary
 units = dict((s, [u for u in unitlist if s in u]) for s in boxes)
 peers = dict((s, set(sum(units[s],[]))-set([s])) for s in boxes)
 
-    pass
+pass
 
 def grid_values(grid):
     """
@@ -111,7 +110,7 @@ def grid_values(grid):
             Keys: The boxes, e.g., 'A1'
             Values: The value in each box, e.g., '8'. If the box has no value, then the value will be '123456789'.
     """
-        chars = []
+    chars = []
     digits = '123456789'
     for c in grid:
         if c == '.':
@@ -149,13 +148,13 @@ def eliminate(values):
 
 def only_choice(values):
         for unit in unitlist:
-        for digit in '123456789':
-            dplaces = [box for box in unit if digit in values[box]]
-            if len(dplaces) == 1:
-                #values[dplaces[0]] = digit
-                values = assign_value(values, dplaces[0], digit)
-    return values
-    pass
+            for digit in '123456789':
+                dplaces = [box for box in unit if digit in values[box]]
+                if len(dplaces) == 1:
+                    #values[dplaces[0]] = digit
+                    values = assign_value(values, dplaces[0], digit)
+        return values
+        pass
 
 def reduce_puzzle(values):
     solved_values = [box for box in values.keys() if len(values[box]) == 1]
